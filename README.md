@@ -1,2 +1,2 @@
 # edyuto.github.io
-test
+Bootstrap css and javascript test
