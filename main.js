@@ -23,12 +23,16 @@ if (typeof Object.keys !== "function") {
 function dateDiff(a, b) {
     var a = new Date(a.split("-"));
     var b = new Date(b.split("-"));
-    return (b-a) / (1000*3600*24);
+    console.log(a);
+    console.log(b);
+    console.log(b-a);
+    return (b-a);
 }
 
 function mySubmit() {
     document.getElementById("alert_placeholder").innerHTML = "";
     document.getElementById("alert_timeout").innerHTML = "";
+    document.getElementById("Table0").innerHTML = "";
     var query = window.query;
     var DATA_INICIAL = document.getElementById("Data_Inicial").value;
     var DATA_FINAL = document.getElementById("Data_Final").value;
@@ -36,8 +40,8 @@ function mySubmit() {
     var VENDA = document.getElementById("Venda").checked;
     var DATAHORA = document.getElementById("DataHora").checked;
 
-    if (DATA_INICIAL == "" || DATA_FINAL == "" || dateDiff(DATA_INICIAL, DATA_FINAL) < 10 || dateDiff(DATA_INICIAL, DATA_FINAL) > 90) {
-        document.getElementById("alert_placeholder").innerHTML = "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\" id=\"alert\">Período inválido: forneça um período de 10 (mínimo) a 90 (máximo) dias para a cotação.<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>";
+    if (DATA_INICIAL == "" || DATA_FINAL == "" || dateDiff(DATA_INICIAL, DATA_FINAL) < 0) {
+        document.getElementById("alert_placeholder").innerHTML = "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\" id=\"alert\">Período inválido.<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>";
         return;
     }
 
