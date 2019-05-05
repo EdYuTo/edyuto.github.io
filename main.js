@@ -1,4 +1,4 @@
-var query = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial='DATA_INICIAL'&@dataFinalCotacao='DATA_FINAL'&$top=100&$format=json";
+var query = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial='DATA_INICIAL'&@dataFinalCotacao='DATA_FINAL'&$top=15000&$format=json";
 var queryAdd = "&$select=";
 var queryCompra = "cotacaoCompra";
 var queryVenda = "cotacaoVenda";
