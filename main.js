@@ -23,9 +23,6 @@ if (typeof Object.keys !== "function") {
 function dateDiff(a, b) {
     var a = new Date(a.split("-"));
     var b = new Date(b.split("-"));
-    console.log(a);
-    console.log(b);
-    console.log(b-a);
     return (b-a);
 }
 
