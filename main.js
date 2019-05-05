@@ -75,7 +75,7 @@ function loadQuery(query) {
     xhttp.open("GET", query, true);
     xhttp.timeout = 3000;
     xhttp.ontimeout = function () { 
-        document.getElementById("alert_timeout").innerHTML = "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">Tempo de conexão esgotado.<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>";
+        document.getElementById("alert_timeout").innerHTML = "<br><div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">Tempo de conexão esgotado.<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>";
     }
     xhttp.send();
 }
