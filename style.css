@@ -1,0 +1,46 @@
+.dracula-color-scheme {
+    color: #282a36; /*Background*/
+    color: #44475a; /*Current Line*/
+    color: #44475a; /*Selection*/
+    color: #f8f8f2; /*Foreground*/
+    color: #6272a4; /*Comment*/
+    color: #8be9fd; /*Cyan*/
+    color: #50fa7b; /*Green*/
+    color: #ffb86c; /*Orange*/
+    color: #ff79c6; /*Pink*/
+    color: #bd93f9; /*Purple*/
+    color: #ff5555; /*Red*/
+    color: #f1fa8c; /*Yellow*/
+}
+
+.navbar {
+    background-color: #44475a;
+}
+
+.navbar-brand {
+    color: #50fa7b;
+}
+
+.navbar-brand:hover {
+    color: #ffb86c;
+}
+
+.nav > .nav-item > .active {
+    background-color: #6272a4;    
+}
+
+.nav > .nav-item > .active:hover {
+    background-color: #bd93f9;    
+}
+
+.nav > .nav-item > .nav-link {
+    color: #f8f8f2;    
+}
+
+.nav > .nav-item > .nav-link:hover {
+    color: #f1fa8c;    
+}
+
+body {
+    background-color: #282a36;
+}
