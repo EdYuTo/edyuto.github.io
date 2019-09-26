@@ -13,6 +13,11 @@
     color: #f1fa8c; /*Yellow*/
 }
 
+.blockquote {
+    background-color: #44475a;
+    color: #50fa7b;
+}
+
 .navbar {
     background-color: #44475a;
 }
