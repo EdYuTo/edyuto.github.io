@@ -8,3 +8,6 @@ Update the [schedule.json file](schedule.json) accordingly.
 
 # Want to contribute?
 Just open a pr!
+
+# Assets
+Favicon by [crountch](https://www.deviantart.com/crountch) (Free for non-commercial use)
