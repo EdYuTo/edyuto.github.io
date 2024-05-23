@@ -32,6 +32,11 @@
             color: #50FA7B;
         }
 
+        #chapter {
+            font-size: calc(5vh);
+            margin-top: 16px;
+        }
+
         footer {
             font-size: 14px;
             text-align: center;
@@ -96,6 +101,11 @@
                 if (typeof currentSchedule.Description === 'number') {
                     resultDiv.textContent = "No";
                     resultDiv.classList.add("no");
+
+                    var chapterDiv = document.createElement("div");
+                    chapterDiv.id = "chapter";
+                    chapterDiv.textContent = "Current Chapter: " + currentSchedule.Description;
+                    resultDiv.appendChild(chapterDiv);
                 } else {
                     resultDiv.textContent = "Yes";
                     resultDiv.classList.add("yes");
