@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Is One Piece on a break?</title>
-    <link rel="icon" type="image/x-icon" href="src/Crountch-One-Piece-Jolly-Roger-Luffys-flag.32.png">
+    <link rel="icon" type="image/x-icon" href="resources/Crountch-One-Piece-Jolly-Roger-Luffys-flag.32.png">
     <style>
         body {
             background-color: #282A36;
@@ -94,7 +94,7 @@
 
             console.log("We are currently in week number:", weekNumber);
 
-            const scheduleSrc = 'https://raw.githubusercontent.com/EdYuTo/edyuto.github.io/master/schedule.json'
+            const scheduleSrc = 'https://raw.githubusercontent.com/EdYuTo/edyuto.github.io/master/resources/schedule.json'
             loadJSONFileXHR(scheduleSrc, function (jsonData) {
                 var currentSchedule = jsonData[weekNumber - 1]
                 console.log("Current schedule:", currentSchedule)
