@@ -1,0 +1,38 @@
+name: Update schedule
+
+on:
+  workflow_dispatch:
+    inputs:
+      week:
+        description: 'Week to update'
+        required: true
+      description:
+        description: 'Chapter number or break description'
+        required: false
+        default: 'Oda Break'
+
+jobs:
+  update_json:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+    
+    - name: Update schedule
+      run: |
+        python scripts/update_schedule.py ${{ github.event.inputs.week }} "${{ github.event.inputs.description }}"
+    
+    - name: Update file on repo
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git commit -am "Update schedule for week ${{ github.event.inputs.week }}"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
