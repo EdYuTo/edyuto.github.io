@@ -14,9 +14,14 @@ on:
 jobs:
   update_json:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/resources/schedule'
-    
+
     steps:
+    - name: Validate branch
+      if: github.ref != 'refs/heads/resources/schedule'
+      run: |
+        echo "::error::Selected branch should be 'resources/schedule'"
+        exit 1
+
     - name: Checkout repository
       uses: actions/checkout@v4
     
@@ -27,7 +32,7 @@ jobs:
     
     - name: Update schedule
       run: |
-        python scripts/update_schedule.py ${{ github.event.inputs.week }} "${{ github.event.inputs.description }}"
+        python update_schedule.py ${{ github.event.inputs.week }} "${{ github.event.inputs.description }}"
     
     - name: Update file on repo
       run: |
