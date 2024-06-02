@@ -14,6 +14,7 @@ on:
 jobs:
   update_json:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/resources/schedule'
     
     steps:
     - name: Checkout repository

@@ -94,7 +94,7 @@
 
             console.log("We are currently in week number:", weekNumber);
 
-            const scheduleSrc = 'https://raw.githubusercontent.com/EdYuTo/edyuto.github.io/master/resources/schedule.json'
+            const scheduleSrc = 'https://raw.githubusercontent.com/EdYuTo/edyuto.github.io/resources/schedule/schedule.json'
             loadJSONFileXHR(scheduleSrc, function (jsonData) {
                 var currentSchedule = jsonData[weekNumber - 1]
                 console.log("Current schedule:", currentSchedule)
