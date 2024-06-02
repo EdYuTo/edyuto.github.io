@@ -1,0 +1,262 @@
+[
+  {
+    "Week": "01",
+    "Description": 1103,
+    "Date": "2024-01-04"
+  },
+  {
+    "Week": "02",
+    "Description": "WSJ Break",
+    "Date": "2024-01-11"
+  },
+  {
+    "Week": "03",
+    "Description": 1104,
+    "Date": "2024-01-18"
+  },
+  {
+    "Week": "04",
+    "Description": 1105,
+    "Date": "2024-01-25"
+  },
+  {
+    "Week": "05",
+    "Description": 1106,
+    "Date": "2024-02-01"
+  },
+  {
+    "Week": "06",
+    "Description": "Oda Break",
+    "Date": "2024-02-08"
+  },
+  {
+    "Week": "07",
+    "Description": 1107,
+    "Date": "2024-02-15"
+  },
+  {
+    "Week": "08",
+    "Description": 1108,
+    "Date": "2024-02-22"
+  },
+  {
+    "Week": "09",
+    "Description": 1109,
+    "Date": "2024-02-29"
+  },
+  {
+    "Week": "10",
+    "Description": "Oda Break",
+    "Date": "2024-03-07"
+  },
+  {
+    "Week": "11",
+    "Description": 1110,
+    "Date": "2024-03-14"
+  },
+  {
+    "Week": "12",
+    "Description": 1111,
+    "Date": "2024-03-21"
+  },
+  {
+    "Week": "13",
+    "Description": "Oda Break",
+    "Date": "2024-03-28"
+  },
+  {
+    "Week": "14",
+    "Description": "Oda Break",
+    "Date": "2024-04-04"
+  },
+  {
+    "Week": "15",
+    "Description": "Oda Break",
+    "Date": "2024-04-11"
+  },
+  {
+    "Week": "16",
+    "Description": 1112,
+    "Date": "2024-04-18"
+  },
+  {
+    "Week": "17",
+    "Description": 1113,
+    "Date": "2024-04-25"
+  },
+  {
+    "Week": "18",
+    "Description": "WSJ Break",
+    "Date": "2024-05-02"
+  },
+  {
+    "Week": "19",
+    "Description": 1114,
+    "Date": "2024-05-09"
+  },
+  {
+    "Week": "20",
+    "Description": "Oda Break",
+    "Date": "2024-05-16"
+  },
+  {
+    "Week": "21",
+    "Description": 1115,
+    "Date": "2024-05-23"
+  },
+  {
+    "Week": "22",
+    "Description": 1116,
+    "Date": "2024-05-30"
+  },
+  {
+    "Week": "23",
+    "Description": 1117,
+    "Date": "2024-06-06"
+  },
+  {
+    "Week": "24",
+    "Description": "Oda Break",
+    "Date": "2024-06-13"
+  },
+  {
+    "Week": "25",
+    "Description": 1118,
+    "Date": "2024-06-20"
+  },
+  {
+    "Week": "26",
+    "Description": 1119,
+    "Date": "2024-06-27"
+  },
+  {
+    "Week": "27",
+    "Description": 1120,
+    "Date": "2024-07-04"
+  },
+  {
+    "Week": "28",
+    "Description": "Oda Break",
+    "Date": "2024-07-11"
+  },
+  {
+    "Week": "29",
+    "Description": 1121,
+    "Date": "2024-07-18"
+  },
+  {
+    "Week": "30",
+    "Description": 1122,
+    "Date": "2024-07-25"
+  },
+  {
+    "Week": "31",
+    "Description": "Oda Break",
+    "Date": "2024-08-01"
+  },
+  {
+    "Week": "32",
+    "Description": 1123,
+    "Date": "2024-08-08"
+  },
+  {
+    "Week": "33",
+    "Description": "WSJ Break",
+    "Date": "2024-08-15"
+  },
+  {
+    "Week": "34",
+    "Description": 1124,
+    "Date": "2024-08-22"
+  },
+  {
+    "Week": "35",
+    "Description": 1125,
+    "Date": "2024-08-29"
+  },
+  {
+    "Week": "36",
+    "Description": "Oda Break",
+    "Date": "2024-09-05"
+  },
+  {
+    "Week": "37",
+    "Description": 1126,
+    "Date": "2024-09-12"
+  },
+  {
+    "Week": "38",
+    "Description": 1127,
+    "Date": "2024-09-19"
+  },
+  {
+    "Week": "39",
+    "Description": 1128,
+    "Date": "2024-09-26"
+  },
+  {
+    "Week": "40",
+    "Description": "Oda Break",
+    "Date": "2024-10-03"
+  },
+  {
+    "Week": "41",
+    "Description": 1129,
+    "Date": "2024-10-10"
+  },
+  {
+    "Week": "42",
+    "Description": 1130,
+    "Date": "2024-10-17"
+  },
+  {
+    "Week": "43",
+    "Description": "Oda Break",
+    "Date": "2024-10-24"
+  },
+  {
+    "Week": "44",
+    "Description": 1131,
+    "Date": "2024-10-31"
+  },
+  {
+    "Week": "45",
+    "Description": 1132,
+    "Date": "2024-11-07"
+  },
+  {
+    "Week": "46",
+    "Description": "Oda Break",
+    "Date": "2024-11-14"
+  },
+  {
+    "Week": "47",
+    "Description": 1133,
+    "Date": "2024-11-21"
+  },
+  {
+    "Week": "48",
+    "Description": 1134,
+    "Date": "2024-11-28"
+  },
+  {
+    "Week": "49",
+    "Description": 1135,
+    "Date": "2024-12-05"
+  },
+  {
+    "Week": "50",
+    "Description": "Oda Break",
+    "Date": "2024-12-12"
+  },
+  {
+    "Week": "51",
+    "Description": 1136,
+    "Date": "2024-12-19"
+  },
+  {
+    "Week": "52",
+    "Description": "WSJ Break",
+    "Date": "2024-12-26"
+  }
+]
