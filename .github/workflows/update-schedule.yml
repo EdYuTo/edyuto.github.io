@@ -16,14 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Validate branch
-      if: github.ref != 'refs/heads/resources/schedule'
-      run: |
-        echo "::error::Selected branch should be 'resources/schedule'"
-        exit 1
-
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        ref: resources/schedule
     
     - name: Set up Python
       uses: actions/setup-python@v4
