@@ -73,6 +73,16 @@
         <p>Contribute at <a href="https://github.com/EdYuTo/edyuto.github.io">GitHub</a>.</p>
     </footer>
     <script>
+        function isWithin7Days(currentDate, nextDate) {
+            const msIn7Days = 7 * 24 * 60 * 60 * 1000;
+            const diff = nextDate - currentDate;
+            console.log("Current date:", currentDate);
+            console.log("Next release date:", nextDate);
+            console.log("Difference in milliseconds:", diff);
+            console.log("Difference in days:", diff / (1000 * 60 * 60 * 24));
+            return diff >= 0 && diff <= msIn7Days;
+        }
+
         async function loadJSONFile(url) {
             const res = await fetch(url);
             if (!res.ok) {
@@ -85,19 +95,16 @@
             const resultDiv = document.getElementById("result");
 
             const currentDate = new Date();
-            const currentDayOfYear = (Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()) - Date.UTC(currentDate.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
-            const weekNumber = Math.ceil((currentDayOfYear + 1) / 7);
-
-            console.log("We are currently in week number:", weekNumber);
 
             try {
                 const scheduleSrc = 'https://raw.githubusercontent.com/EdYuTo/edyuto.github.io/resources/schedule/schedule.json';
                 const jsonData = await loadJSONFile(scheduleSrc);
+                console.log(jsonData);
 
-                const currentSchedule = jsonData[weekNumber - 1];
-                console.log("Current schedule:", currentSchedule);
+                const nextReleaseTimestamp = jsonData['timestamp'] * 1000;
+                const nextReleaseDate = new Date(nextReleaseTimestamp);
 
-                if (typeof currentSchedule.Description === 'number') {
+                if (isWithin7Days(currentDate, nextReleaseDate)) {
                     resultDiv.textContent = "No";
                     resultDiv.classList.add("no");
 
