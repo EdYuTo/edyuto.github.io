@@ -38,15 +38,17 @@ message TitleLabels {
 }
 
 message Chapter {
-  string chapterId = 1;
-  string chapterName = 2;
+  int32 titleId = 1;
+  int32 chapterId = 2;
   string chapterNum = 3;
-  string publishDate = 4;
-  string startTimeStamp = 5;
-  string endTimeStamp = 6;
-  bool alreadyViewed = 7;
-  bool isVerticalOnly = 8;
-  bool isDoubleSpread = 9;
+  string name = 4;
+  string thumbnailUrl = 5;
+  int64 startTimeStamp = 6;
+  int64 endTimeStamp = 7;
+  bool isPublic = 8;
+  // Fields 9–12 may exist but are skipped here
+  int32 pageCount = 13;
+  int32 viewCount = 14;
 }
 
 enum UpdateTiming {
