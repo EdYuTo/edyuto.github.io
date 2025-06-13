@@ -56,7 +56,6 @@
             text-decoration: underline;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/protobufjs/dist/protobuf.min.js"></script>
 </head>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KNP1448GHZ"></script>
@@ -74,46 +73,29 @@
         <p>Contribute at <a href="https://github.com/EdYuTo/edyuto.github.io">GitHub</a>.</p>
     </footer>
     <script>
-        const protoSrc = `
-            syntax = "proto3";
-            message Response {
-                SuccessResult success = 1;
+        async function loadJSONFile(url) {
+            const res = await fetch(url);
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
             }
-            message SuccessResult {
-                TitleDetailView titleDetailView = 8;
-            }
-            message TitleDetailView {
-                uint64 nextTimeStamp = 5;
-            }`;
-
-        function isWithin7Days(currentDate, nextDate) {
-            const msIn7Days = 7 * 24 * 60 * 60 * 1000;
-            const diff = nextDate - currentDate;
-            console.log("Current date:", currentDate);
-            console.log("Next release date:", nextDate);
-            console.log("Difference in milliseconds:", diff);
-            console.log("Difference in days:", diff / (1000 * 60 * 60 * 24));
-            return diff >= 0 && diff <= msIn7Days;
+            return res.json();
         }
 
         async function showAnswer() {
             const resultDiv = document.getElementById("result");
 
             const currentDate = new Date();
+            const currentDayOfYear = (Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()) - Date.UTC(currentDate.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
+            const weekNumber = Math.ceil((currentDayOfYear + 1) / 7);
 
             try {
-                const root = await protobuf.parse(protoSrc).root;
-                const Response = root.lookupType("Response");
+                const scheduleSrc = 'https://raw.githubusercontent.com/EdYuTo/edyuto.github.io/resources/schedule/schedule.json';
+                const jsonData = await loadJSONFile(scheduleSrc);
 
-                // We can't use this in production, it's just for testing purposes
-                const res = await fetch('https://corsproxy.io/?https://jumpg-webapi.tokyo-cdn.com/api/title_detailV3?title_id=100020');
-                const buffer = await res.arrayBuffer();
-                const decoded = Response.decode(new Uint8Array(buffer));
+                const currentSchedule = jsonData[weekNumber - 1];
+                console.log("Current schedule:", currentSchedule);
 
-                const nextReleaseTimestamp = decoded.success?.titleDetailView?.nextTimeStamp * 1000;
-                const nextReleaseDate = new Date(nextReleaseTimestamp);
-
-                if (isWithin7Days(currentDate, nextReleaseDate)) {
+                if (typeof currentSchedule.Description === 'number') {
                     resultDiv.textContent = "No";
                     resultDiv.classList.add("no");
 
