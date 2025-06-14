@@ -2,14 +2,8 @@ name: Update schedule
 
 on:
   workflow_dispatch:
-    inputs:
-      week:
-        description: 'Week to update'
-        required: true
-      description:
-        description: 'Chapter number or break description'
-        required: false
-        default: 'Oda Break'
+  schedule:
+    - cron: '59 23 * * 0'
 
 jobs:
   update_json:
