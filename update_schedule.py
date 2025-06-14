@@ -8,6 +8,7 @@ if __name__ == '__main__':
     response = requests.get(url)
     data = response.content
 
+    # Run `protoc --python_out=. mangaplus.proto` to generate the mangaplus_pb2 module
     msg = mangaplus_pb2.Response()
     msg.ParseFromString(data)
 

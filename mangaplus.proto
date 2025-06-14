@@ -10,4 +10,15 @@ message SuccessResult {
 
 message TitleDetailView {
   optional uint64 nextTimeStamp = 5;
+  optional ChapterListWrapper latestChapterList = 28;
+}
+
+message ChapterListWrapper {
+  repeated Chapter chapter = 4;
+}
+
+message Chapter {
+  optional string number = 3;
+  optional string name = 4;
+  optional string thumbnailUrl = 5;
 }
