@@ -19,10 +19,14 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.12'
+     
+    - name: Install python dependencies
+      run: |
+        pip install -r requirements.txt
     
     - name: Update schedule
       run: |
-        python update_schedule.py ${{ github.event.inputs.week }} "${{ github.event.inputs.description }}"
+        python update_schedule.py
     
     - name: Update file on repo
       run: |
