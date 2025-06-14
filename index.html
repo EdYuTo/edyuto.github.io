@@ -98,7 +98,6 @@
             try {
                 const scheduleSrc = 'https://raw.githubusercontent.com/EdYuTo/edyuto.github.io/resources/schedule/schedule.json';
                 const jsonData = await loadJSONFile(scheduleSrc);
-
                 const nextReleaseTimestamp = jsonData['timestamp'] * 1000;
                 const nextReleaseDate = new Date(nextReleaseTimestamp);
 
