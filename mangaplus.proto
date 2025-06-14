@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message Response {
+  optional SuccessResult success = 1;
+}
+
+message SuccessResult {
+  optional TitleDetailView titleDetailView = 8;
+}
+
+message TitleDetailView {
+  optional uint64 nextTimeStamp = 5;
+}
