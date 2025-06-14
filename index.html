@@ -56,7 +56,6 @@
             text-decoration: underline;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/protobufjs/dist/protobuf.min.js"></script>
 </head>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KNP1448GHZ"></script>
@@ -74,18 +73,6 @@
         <p>Contribute at <a href="https://github.com/EdYuTo/edyuto.github.io">GitHub</a>.</p>
     </footer>
     <script>
-        const protoSrc = `
-            syntax = "proto3";
-            message Response {
-                SuccessResult success = 1;
-            }
-            message SuccessResult {
-                TitleDetailView titleDetailView = 8;
-            }
-            message TitleDetailView {
-                uint64 nextTimeStamp = 5;
-            }`;
-
         function isWithin7Days(currentDate, nextDate) {
             const msIn7Days = 7 * 24 * 60 * 60 * 1000;
             const diff = nextDate - currentDate;
@@ -96,21 +83,22 @@
             return diff >= 0 && diff <= msIn7Days;
         }
 
+        async function loadJSONFile(url) {
+            const res = await fetch(url);
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            return res.json();
+        }
+
         async function showAnswer() {
             const resultDiv = document.getElementById("result");
-
             const currentDate = new Date();
 
             try {
-                const root = await protobuf.parse(protoSrc).root;
-                const Response = root.lookupType("Response");
-
-                // We can't use this in production, it's just for testing purposes
-                const res = await fetch('https://corsproxy.io/?https://jumpg-webapi.tokyo-cdn.com/api/title_detailV3?title_id=100020');
-                const buffer = await res.arrayBuffer();
-                const decoded = Response.decode(new Uint8Array(buffer));
-
-                const nextReleaseTimestamp = decoded.success?.titleDetailView?.nextTimeStamp * 1000;
+                const scheduleSrc = 'https://raw.githubusercontent.com/EdYuTo/edyuto.github.io/resources/schedule/schedule.json';
+                const jsonData = await loadJSONFile(scheduleSrc);
+                const nextReleaseTimestamp = jsonData['timestamp'] * 1000;
                 const nextReleaseDate = new Date(nextReleaseTimestamp);
 
                 if (isWithin7Days(currentDate, nextReleaseDate)) {
@@ -119,7 +107,7 @@
 
                     const chapterDiv = document.createElement("div");
                     chapterDiv.id = "chapter";
-                    chapterDiv.textContent = "Current Chapter: " + currentSchedule.Description;
+                    chapterDiv.textContent = "Current Chapter: " + jsonData['chapter'];
                     resultDiv.appendChild(chapterDiv);
                 } else {
                     resultDiv.textContent = "Yes";

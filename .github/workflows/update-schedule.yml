@@ -2,14 +2,8 @@ name: Update schedule
 
 on:
   workflow_dispatch:
-    inputs:
-      week:
-        description: 'Week to update'
-        required: true
-      description:
-        description: 'Chapter number or break description'
-        required: false
-        default: 'Oda Break'
+  schedule:
+    - cron: '59 23 * * 0'
 
 jobs:
   update_json:
@@ -25,16 +19,21 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.12'
+     
+    - name: Install python dependencies
+      run: |
+        pip install -r requirements.txt
     
     - name: Update schedule
       run: |
-        python update_schedule.py ${{ github.event.inputs.week }} "${{ github.event.inputs.description }}"
+        python update_schedule.py
     
     - name: Update file on repo
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git commit -am "Update schedule for week ${{ github.event.inputs.week }}"
+        git add . && git diff --quiet && git diff --cached --quiet && exit 0
+        git commit -m "Update schedule on $(date '+%Y-%m-%d')"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
