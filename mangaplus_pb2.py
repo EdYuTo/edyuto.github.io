@@ -21,7 +21,10 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 
 _sym_db = _symbol_database.Default()
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fmangaplus.proto\"<\n\x08Response\x12$\n\x07success\x18\x01 \x01(\x0b\x32\x0e.SuccessResultH\x00\x88\x01\x01\x42\n\n\x08_success\"S\n\rSuccessResult\x12.\n\x0ftitleDetailView\x18\x08 \x01(\x0b\x32\x10.TitleDetailViewH\x00\x88\x01\x01\x42\x12\n\x10_titleDetailView\"?\n\x0fTitleDetailView\x12\x1a\n\rnextTimeStamp\x18\x05 \x01(\x04H\x00\x88\x01\x01\x42\x10\n\x0e_nextTimeStampb\x06proto3')
+
+
+
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fmangaplus.proto\"<\n\x08Response\x12$\n\x07success\x18\x01 \x01(\x0b\x32\x0e.SuccessResultH\x00\x88\x01\x01\x42\n\n\x08_success\"S\n\rSuccessResult\x12.\n\x0ftitleDetailView\x18\x08 \x01(\x0b\x32\x10.TitleDetailViewH\x00\x88\x01\x01\x42\x12\n\x10_titleDetailView\"\x8a\x01\n\x0fTitleDetailView\x12\x1a\n\rnextTimeStamp\x18\x05 \x01(\x04H\x00\x88\x01\x01\x12\x33\n\x11latestChapterList\x18\x1c \x01(\x0b\x32\x13.ChapterListWrapperH\x01\x88\x01\x01\x42\x10\n\x0e_nextTimeStampB\x14\n\x12_latestChapterList\"/\n\x12\x43hapterListWrapper\x12\x19\n\x07\x63hapter\x18\x04 \x03(\x0b\x32\x08.Chapter\"q\n\x07\x43hapter\x12\x13\n\x06number\x18\x03 \x01(\tH\x00\x88\x01\x01\x12\x11\n\x04name\x18\x04 \x01(\tH\x01\x88\x01\x01\x12\x19\n\x0cthumbnailUrl\x18\x05 \x01(\tH\x02\x88\x01\x01\x42\t\n\x07_numberB\x07\n\x05_nameB\x0f\n\r_thumbnailUrlb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,6 +35,10 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_RESPONSE']._serialized_end=79
   _globals['_SUCCESSRESULT']._serialized_start=81
   _globals['_SUCCESSRESULT']._serialized_end=164
-  _globals['_TITLEDETAILVIEW']._serialized_start=166
-  _globals['_TITLEDETAILVIEW']._serialized_end=229
+  _globals['_TITLEDETAILVIEW']._serialized_start=167
+  _globals['_TITLEDETAILVIEW']._serialized_end=305
+  _globals['_CHAPTERLISTWRAPPER']._serialized_start=307
+  _globals['_CHAPTERLISTWRAPPER']._serialized_end=354
+  _globals['_CHAPTER']._serialized_start=356
+  _globals['_CHAPTER']._serialized_end=469
 # @@protoc_insertion_point(module_scope)
