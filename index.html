@@ -2,129 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Is One Piece on a break?</title>
-    <link rel="icon" type="image/x-icon" href="resources/Crountch-One-Piece-Jolly-Roger-Luffys-flag.32.png">
-    <style>
-        body {
-            background-color: #282A36;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        #result {
-            display: none;
-            margin-top: 10px;
-            color: white;
-            text-align: center;
-            font-size: calc(25vh);
-        }
-
-        #result.yes {
-            color: #FF5555;
-        }
-
-        #result.no {
-            color: #50FA7B;
-        }
-
-        #chapter {
-            font-size: calc(5vh);
-            margin-top: 16px;
-        }
-
-        footer {
-            font-size: 14px;
-            text-align: center;
-            text-align: center;
-            bottom: 0;
-            position: fixed;
-            width: 100%;
-            color: #F8F8F2;
-        }
-
-        footer a {
-            color: #FF79C6;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Check if One Piece is on a break this week and displays YES if it is and NO if it is not.">
+  <title>Is One Piece on a break?</title>
+  <link rel="icon" type="image/x-icon" href="resources/Crountch-One-Piece-Jolly-Roger-Luffys-flag.32.png">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KNP1448GHZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-KNP1448GHZ');
+  </script>
 </head>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KNP1448GHZ"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-KNP1448GHZ');
-</script>
-
 <body>
-    <div id="result"></div>
-    <footer>
-        <p>Contribute at <a href="https://github.com/EdYuTo/edyuto.github.io">GitHub</a>.</p>
-    </footer>
-    <script>
-        function isWithin7Days(currentDate, nextDate) {
-            const msIn7Days = 7 * 24 * 60 * 60 * 1000;
-            const diff = nextDate - currentDate;
-            console.log("Current date:", currentDate);
-            console.log("Next release date:", nextDate);
-            console.log("Difference in milliseconds:", diff);
-            console.log("Difference in days:", diff / (1000 * 60 * 60 * 24));
-            return diff >= 0 && diff <= msIn7Days;
-        }
+  <div id="result"></div>
 
-        async function loadJSONFile(url) {
-            const res = await fetch(url);
-            if (!res.ok) {
-                throw new Error(`HTTP error! status: ${res.status}`);
-            }
-            return res.json();
-        }
+  <footer>
+    <p>Contribute at <a href="https://github.com/EdYuTo/edyuto.github.io">GitHub</a>.</p>
+  </footer>
 
-        async function showAnswer() {
-            const resultDiv = document.getElementById("result");
-            const currentDate = new Date();
-
-            try {
-                const scheduleSrc = 'https://raw.githubusercontent.com/EdYuTo/edyuto.github.io/resources/schedule/schedule.json';
-                const jsonData = await loadJSONFile(scheduleSrc);
-                const nextReleaseTimestamp = jsonData['timestamp'] * 1000;
-                const nextReleaseDate = new Date(nextReleaseTimestamp);
-
-                if (isWithin7Days(currentDate, nextReleaseDate)) {
-                    resultDiv.textContent = "No";
-                    resultDiv.classList.add("no");
-
-                    const chapterDiv = document.createElement("div");
-                    chapterDiv.id = "chapter";
-                    chapterDiv.textContent = "Current Chapter: " + jsonData['chapter'];
-                    resultDiv.appendChild(chapterDiv);
-                } else {
-                    resultDiv.textContent = "Yes";
-                    resultDiv.classList.add("yes");
-                }
-            } catch (error) {
-                console.error("Error loading schedule:", error);
-                resultDiv.textContent = "??";
-                resultDiv.classList.add("yes");
-            }
-            resultDiv.style.display = "block";
-        }
-
-        window.onload = function () {
-            showAnswer();
-        };
-    </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
